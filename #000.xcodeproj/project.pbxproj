@@ -8,20 +8,78 @@
 
 /* Begin PBXBuildFile section */
 		C93B821B1CD32CA100D76803 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B821A1CD32CA100D76803 /* AppDelegate.swift */; };
-		C93B821D1CD32CA100D76803 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B821C1CD32CA100D76803 /* ViewController.swift */; };
-		C93B82201CD32CA100D76803 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93B821E1CD32CA100D76803 /* Main.storyboard */; };
+		C93B821D1CD32CA100D76803 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B821C1CD32CA100D76803 /* MainViewController.swift */; };
 		C93B82221CD32CA100D76803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C93B82211CD32CA100D76803 /* Assets.xcassets */; };
 		C93B82251CD32CA100D76803 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93B82231CD32CA100D76803 /* LaunchScreen.storyboard */; };
+		C93B82351CD32F0600D76803 /* CivilizationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B822E1CD32F0600D76803 /* CivilizationGenerator.swift */; };
+		C93B82361CD32F0600D76803 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B822F1CD32F0600D76803 /* Field.swift */; };
+		C93B82371CD32F0600D76803 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82301CD32F0600D76803 /* Map.swift */; };
+		C93B82381CD32F0600D76803 /* NormalMapFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82311CD32F0600D76803 /* NormalMapFilter.swift */; };
+		C93B82391CD32F0600D76803 /* PerlinGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82321CD32F0600D76803 /* PerlinGenerator.swift */; };
+		C93B823A1CD32F0600D76803 /* PixelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82331CD32F0600D76803 /* PixelData.swift */; };
+		C93B823B1CD32F0600D76803 /* PlanetGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82341CD32F0600D76803 /* PlanetGenerator.swift */; };
+		C93B823E1CD32F3600D76803 /* Civilization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B823D1CD32F3600D76803 /* Civilization.swift */; };
+		C93B82401CD32F5D00D76803 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B823F1CD32F5D00D76803 /* ColorScheme.swift */; };
+		C93B82421CD32F6F00D76803 /* Biome.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82411CD32F6F00D76803 /* Biome.swift */; };
+		C93B82461CD32FD900D76803 /* TamagotchiScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82451CD32FD900D76803 /* TamagotchiScene.swift */; };
+		C93B82491CD32FFE00D76803 /* BlackHole.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82481CD32FFE00D76803 /* BlackHole.swift */; };
+		C93B824C1CD3301D00D76803 /* SKAction+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B824B1CD3301D00D76803 /* SKAction+Utils.swift */; };
+		C93B824F1CD3303D00D76803 /* benny.atlas in Resources */ = {isa = PBXBuildFile; fileRef = C93B824E1CD3303D00D76803 /* benny.atlas */; };
+		C93B82511CD3305200D76803 /* SKScene+StarField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82501CD3305200D76803 /* SKScene+StarField.swift */; };
+		C93B82541CD3306800D76803 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = C93B82521CD3306800D76803 /* spark.png */; };
+		C93B82551CD3306800D76803 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = C93B82531CD3306800D76803 /* star.png */; };
+		C93B82571CD3307600D76803 /* BigBang.sks in Resources */ = {isa = PBXBuildFile; fileRef = C93B82561CD3307600D76803 /* BigBang.sks */; };
+		C93B82591CD3308900D76803 /* GlobalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82581CD3308900D76803 /* GlobalHelpers.swift */; };
+		C93B825B1CD330B500D76803 /* NSTimer+Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B825A1CD330B500D76803 /* NSTimer+Blocks.swift */; };
+		C93B825D1CD330CB00D76803 /* SKNode+TextUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B825C1CD330CB00D76803 /* SKNode+TextUtils.swift */; };
+		C93B82601CD3310400D76803 /* DefaultSKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B825F1CD3310400D76803 /* DefaultSKView.swift */; };
+		C93B82621CD3316C00D76803 /* CreateUniverseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82611CD3316C00D76803 /* CreateUniverseScene.swift */; };
+		C93B82641CD331C700D76803 /* GeneralState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82631CD331C700D76803 /* GeneralState.swift */; };
+		C93B82671CD3341700D76803 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82661CD3341700D76803 /* Constants.swift */; };
+		C93B82691CD337BA00D76803 /* SKNode+Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82681CD337BA00D76803 /* SKNode+Spring.swift */; };
+		C93B826B1CD337C700D76803 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93B826A1CD337C700D76803 /* SpriteKit.framework */; };
+		C93B826D1CD337CD00D76803 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93B826C1CD337CD00D76803 /* SceneKit.framework */; };
+		C93B82701CD3382200D76803 /* HEXColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93B826F1CD3382200D76803 /* HEXColor.framework */; };
+		C93B82721CD3386700D76803 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82711CD3386700D76803 /* Debug.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C93B82171CD32CA100D76803 /* #000.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#000.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93B821A1CD32CA100D76803 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C93B821C1CD32CA100D76803 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C93B821F1CD32CA100D76803 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C93B821C1CD32CA100D76803 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C93B82211CD32CA100D76803 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C93B82241CD32CA100D76803 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C93B82261CD32CA100D76803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C93B822E1CD32F0600D76803 /* CivilizationGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilizationGenerator.swift; sourceTree = "<group>"; };
+		C93B822F1CD32F0600D76803 /* Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
+		C93B82301CD32F0600D76803 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		C93B82311CD32F0600D76803 /* NormalMapFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalMapFilter.swift; sourceTree = "<group>"; };
+		C93B82321CD32F0600D76803 /* PerlinGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerlinGenerator.swift; sourceTree = "<group>"; };
+		C93B82331CD32F0600D76803 /* PixelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixelData.swift; sourceTree = "<group>"; };
+		C93B82341CD32F0600D76803 /* PlanetGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetGenerator.swift; sourceTree = "<group>"; };
+		C93B823D1CD32F3600D76803 /* Civilization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Civilization.swift; sourceTree = "<group>"; };
+		C93B823F1CD32F5D00D76803 /* ColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
+		C93B82411CD32F6F00D76803 /* Biome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Biome.swift; sourceTree = "<group>"; };
+		C93B82451CD32FD900D76803 /* TamagotchiScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TamagotchiScene.swift; sourceTree = "<group>"; };
+		C93B82481CD32FFE00D76803 /* BlackHole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackHole.swift; sourceTree = "<group>"; };
+		C93B824B1CD3301D00D76803 /* SKAction+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKAction+Utils.swift"; sourceTree = "<group>"; };
+		C93B824E1CD3303D00D76803 /* benny.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = benny.atlas; sourceTree = "<group>"; };
+		C93B82501CD3305200D76803 /* SKScene+StarField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKScene+StarField.swift"; sourceTree = "<group>"; };
+		C93B82521CD3306800D76803 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		C93B82531CD3306800D76803 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		C93B82561CD3307600D76803 /* BigBang.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BigBang.sks; sourceTree = "<group>"; };
+		C93B82581CD3308900D76803 /* GlobalHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalHelpers.swift; sourceTree = "<group>"; };
+		C93B825A1CD330B500D76803 /* NSTimer+Blocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimer+Blocks.swift"; sourceTree = "<group>"; };
+		C93B825C1CD330CB00D76803 /* SKNode+TextUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+TextUtils.swift"; sourceTree = "<group>"; };
+		C93B825F1CD3310400D76803 /* DefaultSKView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSKView.swift; sourceTree = "<group>"; };
+		C93B82611CD3316C00D76803 /* CreateUniverseScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUniverseScene.swift; sourceTree = "<group>"; };
+		C93B82631CD331C700D76803 /* GeneralState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralState.swift; sourceTree = "<group>"; };
+		C93B82661CD3341700D76803 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C93B82681CD337BA00D76803 /* SKNode+Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKNode+Spring.swift"; sourceTree = "<group>"; };
+		C93B826A1CD337C700D76803 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		C93B826C1CD337CD00D76803 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		C93B826F1CD3382200D76803 /* HEXColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HEXColor.framework; path = Carthage/Build/iOS/HEXColor.framework; sourceTree = "<group>"; };
+		C93B82711CD3386700D76803 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +87,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C93B826D1CD337CD00D76803 /* SceneKit.framework in Frameworks */,
+				C93B82701CD3382200D76803 /* HEXColor.framework in Frameworks */,
+				C93B826B1CD337C700D76803 /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +99,9 @@
 		C93B820E1CD32CA100D76803 = {
 			isa = PBXGroup;
 			children = (
+				C93B826F1CD3382200D76803 /* HEXColor.framework */,
+				C93B826C1CD337CD00D76803 /* SceneKit.framework */,
+				C93B826A1CD337C700D76803 /* SpriteKit.framework */,
 				C93B82191CD32CA100D76803 /* #000 */,
 				C93B82181CD32CA100D76803 /* Products */,
 			);
@@ -54,14 +118,120 @@
 		C93B82191CD32CA100D76803 /* #000 */ = {
 			isa = PBXGroup;
 			children = (
+				C93B82651CD3340D00D76803 /* Config */,
+				C93B822D1CD32EF100D76803 /* Models */,
+				C93B822C1CD32EEB00D76803 /* Generators */,
 				C93B821A1CD32CA100D76803 /* AppDelegate.swift */,
-				C93B821C1CD32CA100D76803 /* ViewController.swift */,
-				C93B821E1CD32CA100D76803 /* Main.storyboard */,
+				C93B82471CD32FF300D76803 /* Sprites */,
+				C93B825E1CD330E700D76803 /* SpriteKit Views */,
+				C93B82441CD32FB200D76803 /* Scenes */,
+				C93B82431CD32FA700D76803 /* Controllers */,
+				C93B824A1CD3301000D76803 /* Utils */,
 				C93B82211CD32CA100D76803 /* Assets.xcassets */,
+				C93B824D1CD3303200D76803 /* Images */,
 				C93B82231CD32CA100D76803 /* LaunchScreen.storyboard */,
 				C93B82261CD32CA100D76803 /* Info.plist */,
 			);
 			path = "#000";
+			sourceTree = "<group>";
+		};
+		C93B822C1CD32EEB00D76803 /* Generators */ = {
+			isa = PBXGroup;
+			children = (
+				C93B823C1CD32F2100D76803 /* Map Stuff */,
+				C93B822E1CD32F0600D76803 /* CivilizationGenerator.swift */,
+				C93B82321CD32F0600D76803 /* PerlinGenerator.swift */,
+				C93B82341CD32F0600D76803 /* PlanetGenerator.swift */,
+			);
+			name = Generators;
+			sourceTree = "<group>";
+		};
+		C93B822D1CD32EF100D76803 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C93B823D1CD32F3600D76803 /* Civilization.swift */,
+				C93B82631CD331C700D76803 /* GeneralState.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C93B823C1CD32F2100D76803 /* Map Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				C93B82331CD32F0600D76803 /* PixelData.swift */,
+				C93B822F1CD32F0600D76803 /* Field.swift */,
+				C93B82301CD32F0600D76803 /* Map.swift */,
+				C93B82411CD32F6F00D76803 /* Biome.swift */,
+				C93B823F1CD32F5D00D76803 /* ColorScheme.swift */,
+				C93B82311CD32F0600D76803 /* NormalMapFilter.swift */,
+			);
+			name = "Map Stuff";
+			sourceTree = "<group>";
+		};
+		C93B82431CD32FA700D76803 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C93B821C1CD32CA100D76803 /* MainViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C93B82441CD32FB200D76803 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C93B82561CD3307600D76803 /* BigBang.sks */,
+				C93B82451CD32FD900D76803 /* TamagotchiScene.swift */,
+				C93B82611CD3316C00D76803 /* CreateUniverseScene.swift */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		C93B82471CD32FF300D76803 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				C93B82481CD32FFE00D76803 /* BlackHole.swift */,
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
+		C93B824A1CD3301000D76803 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C93B824B1CD3301D00D76803 /* SKAction+Utils.swift */,
+				C93B82501CD3305200D76803 /* SKScene+StarField.swift */,
+				C93B82581CD3308900D76803 /* GlobalHelpers.swift */,
+				C93B825A1CD330B500D76803 /* NSTimer+Blocks.swift */,
+				C93B825C1CD330CB00D76803 /* SKNode+TextUtils.swift */,
+				C93B82681CD337BA00D76803 /* SKNode+Spring.swift */,
+				C93B82711CD3386700D76803 /* Debug.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		C93B824D1CD3303200D76803 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C93B82521CD3306800D76803 /* spark.png */,
+				C93B82531CD3306800D76803 /* star.png */,
+				C93B824E1CD3303D00D76803 /* benny.atlas */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		C93B825E1CD330E700D76803 /* SpriteKit Views */ = {
+			isa = PBXGroup;
+			children = (
+				C93B825F1CD3310400D76803 /* DefaultSKView.swift */,
+			);
+			name = "SpriteKit Views";
+			sourceTree = "<group>";
+		};
+		C93B82651CD3340D00D76803 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				C93B82661CD3341700D76803 /* Constants.swift */,
+			);
+			name = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +244,7 @@
 				C93B82131CD32CA100D76803 /* Sources */,
 				C93B82141CD32CA100D76803 /* Frameworks */,
 				C93B82151CD32CA100D76803 /* Resources */,
+				C93B826E1CD3380100D76803 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -122,35 +293,70 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C93B82571CD3307600D76803 /* BigBang.sks in Resources */,
 				C93B82251CD32CA100D76803 /* LaunchScreen.storyboard in Resources */,
+				C93B82551CD3306800D76803 /* star.png in Resources */,
+				C93B82541CD3306800D76803 /* spark.png in Resources */,
+				C93B824F1CD3303D00D76803 /* benny.atlas in Resources */,
 				C93B82221CD32CA100D76803 /* Assets.xcassets in Resources */,
-				C93B82201CD32CA100D76803 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C93B826E1CD3380100D76803 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/HexColor.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C93B82131CD32CA100D76803 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C93B821D1CD32CA100D76803 /* ViewController.swift in Sources */,
+				C93B823B1CD32F0600D76803 /* PlanetGenerator.swift in Sources */,
+				C93B82371CD32F0600D76803 /* Map.swift in Sources */,
+				C93B82351CD32F0600D76803 /* CivilizationGenerator.swift in Sources */,
+				C93B825D1CD330CB00D76803 /* SKNode+TextUtils.swift in Sources */,
+				C93B82601CD3310400D76803 /* DefaultSKView.swift in Sources */,
+				C93B824C1CD3301D00D76803 /* SKAction+Utils.swift in Sources */,
+				C93B82671CD3341700D76803 /* Constants.swift in Sources */,
+				C93B821D1CD32CA100D76803 /* MainViewController.swift in Sources */,
+				C93B82691CD337BA00D76803 /* SKNode+Spring.swift in Sources */,
+				C93B82591CD3308900D76803 /* GlobalHelpers.swift in Sources */,
+				C93B82461CD32FD900D76803 /* TamagotchiScene.swift in Sources */,
+				C93B82621CD3316C00D76803 /* CreateUniverseScene.swift in Sources */,
+				C93B82381CD32F0600D76803 /* NormalMapFilter.swift in Sources */,
+				C93B825B1CD330B500D76803 /* NSTimer+Blocks.swift in Sources */,
+				C93B82511CD3305200D76803 /* SKScene+StarField.swift in Sources */,
+				C93B82361CD32F0600D76803 /* Field.swift in Sources */,
+				C93B82421CD32F6F00D76803 /* Biome.swift in Sources */,
+				C93B82401CD32F5D00D76803 /* ColorScheme.swift in Sources */,
+				C93B82641CD331C700D76803 /* GeneralState.swift in Sources */,
+				C93B82491CD32FFE00D76803 /* BlackHole.swift in Sources */,
+				C93B823E1CD32F3600D76803 /* Civilization.swift in Sources */,
+				C93B82721CD3386700D76803 /* Debug.swift in Sources */,
 				C93B821B1CD32CA100D76803 /* AppDelegate.swift in Sources */,
+				C93B823A1CD32F0600D76803 /* PixelData.swift in Sources */,
+				C93B82391CD32F0600D76803 /* PerlinGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C93B821E1CD32CA100D76803 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C93B821F1CD32CA100D76803 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C93B82231CD32CA100D76803 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -251,7 +457,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "#000/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "mat.tc.-000";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -262,7 +473,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "#000/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "mat.tc.-000";
 				PRODUCT_NAME = "$(TARGET_NAME)";

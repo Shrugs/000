@@ -15,8 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
+
+    application.applicationSupportsShakeToEdit = true
+
+    configureAppearance()
+
+    window = UIWindow(frame: UIScreen.mainScreen().bounds)
+
+    guard let window = window else { fatalError("what the fuck, apple?") }
+
+    window.rootViewController = MainViewController()
+    window.makeKeyAndVisible()
+
     return true
+  }
+
+  func configureAppearance() {
+    UITextField.appearance().tintColor = UIColor.whiteColor()
   }
 
   func applicationWillResignActive(application: UIApplication) {
