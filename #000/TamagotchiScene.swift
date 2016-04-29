@@ -24,16 +24,25 @@ class TamagatchiScene: SKScene {
     return CGPoint(x: self.frame.size.width/2.0, y: self.frame.size.height * 0.85)
   }()
 
-  var introduceBlackHoleNode : SKNode?
-  var iAmNode : SKNode?
-  var destroyerOfWorldsNode : SKNode?
+  lazy var introduceBlackHoleNode : SKLabelNode = { [unowned self] in
+    return generalTextNode("a black hole has formed").setPos(to: self.textNodePosition) as! SKLabelNode
+  }()
+
+  lazy var iAmNode : SKLabelNode = { [unowned self] in
+    return generalTextNode("i am").setPos(to: self.textNodePosition) as! SKLabelNode
+  }()
+
+  lazy var destroyerOfWorldsNode : SKLabelNode = { [unowned self] in
+    return generalTextNode("destroyer of worlds")
+  }()
+
   lazy var nameInput : UITextField = { [unowned self] in
     let nameInput = UITextField()
     nameInput.delegate = self
-    nameInput.text = "Benny"
-    nameInput.font = UIFont(name: "AvenirNext-Bold", size: 22)
+    nameInput.text = Constant.DefaultBlackHoleName
+    nameInput.font = UIFont(name: "AvenirNext-Bold", size: Constant.GenericText.Font.Size)
     nameInput.textAlignment = .Center
-    nameInput.textColor = .whiteColor()
+    nameInput.textColor = Constant.GenericText.Font.Color
     nameInput.keyboardAppearance = .Dark
 
     return nameInput
@@ -57,32 +66,32 @@ class TamagatchiScene: SKScene {
 
     if isFirstRun {
       // if it's the first run, introduce the black hole
-      self.introduceBlackHoleNode = generalTextNode("a black hole has formed")
-        .setPos(to: self.textNodePosition)
+      self.introduceBlackHoleNode
         .fadeIn()
-      self.container.addChild(self.introduceBlackHoleNode!)
+      self.container.addChild(self.introduceBlackHoleNode)
 
-      NSTimer.schedule(delay: 3.0) { timer in
-        // after 3 seconds, present the naming node
-        self.introduceBlackHoleNode?.runAction(SKAction.fadeOutWithDuration(1)) { [unowned self] in
-          self.iAmNode = generalTextNode("i am").setPos(to: self.textNodePosition).fadeIn()
-          self.container.addChild(self.iAmNode!)
 
-          self.nameInput.sizeToFit()
-          self.nameInput.frame.size.width = view.frame.size.width * 0.7
-          let skCenter = CGPointMake(view.frame.size.width/2.0, self.iAmNode!.frame.origin.y - self.iAmNode!.frame.size.height - 10)
-          let vCenter = view.convertPoint(skCenter, toScene: self)
-          self.nameInput.center = vCenter
-          self.nameInput.alpha = 0
-          UIView.animateWithDuration(1.0) {
-            self.nameInput.alpha = 1.0
-          }
+      self.introduceBlackHoleNode.fadeOutAfter(3.0, duration: 1.0) {
+        self.iAmNode.fadeIn()
+        self.container.addChild(self.iAmNode)
 
-          view.addSubview(self.nameInput)
+        self.nameInput.sizeToFit()
+        self.nameInput.frame.size.width = view.frame.size.width * 0.7
 
-          self.nameInputFocusTimer = NSTimer.schedule(delay: 3.0) { timer in
-            self.nameInput.becomeFirstResponder()
-          }
+        let skCenter = CGPointMake(view.frame.size.width/2.0, self.iAmNode.frame.origin.y - self.iAmNode.frame.size.height - 10)
+        let vCenter = view.convertPoint(skCenter, toScene: self)
+
+        self.nameInput.center = vCenter
+        self.nameInput.alpha = 0
+
+        UIView.animateWithDuration(1.0) {
+          self.nameInput.alpha = 1.0
+        }
+
+        view.addSubview(self.nameInput)
+
+        self.nameInputFocusTimer = NSTimer.schedule(delay: 3.0) { timer in
+          self.nameInput.becomeFirstResponder()
         }
       }
     } else {
@@ -96,19 +105,17 @@ class TamagatchiScene: SKScene {
     let vLoc = CGPoint(x: self.frame.size.width/2.0, y: self.nameInput.center.y + self.nameInput.frame.size.height + 10)
     let skLoc = self.convertPoint(self.view!.convertPoint(vLoc, toScene: self), toNode: container)
 
-    self.destroyerOfWorldsNode = generalTextNode("destroyer of worlds")
+    self.destroyerOfWorldsNode
       .setPos(to: skLoc)
       .fadeInAfter(1, duration: 1)
-    container.addChild(self.destroyerOfWorldsNode!)
+    container.addChild(self.destroyerOfWorldsNode)
 
-    NSTimer.schedule(delay: 3.0) { timer in
-      self.iAmNode?.fadeOut(1) {
-        UIView.animateWithDuration(1.0, animations: {
-          self.nameInput.alpha = 0.0
-        }) { done in
-          self.destroyerOfWorldsNode?.fadeOut(1.0) {
-            self.introduceEarth()
-          }
+    self.iAmNode.fadeOutAfter(3.0, duration: 1) {
+      UIView.animateWithDuration(1.0, animations: {
+        self.nameInput.alpha = 0.0
+      }) { done in
+        self.destroyerOfWorldsNode.fadeOut(1.0) {
+          self.introduceEarth()
         }
       }
     }
@@ -146,7 +153,7 @@ extension TamagatchiScene : UITextFieldDelegate {
   func textFieldShouldReturn(textField: UITextField) -> Bool {
     if let text = textField.text where text.characters.count >= 1 {
       self.nameInput.resignFirstResponder()
-      doneEditingName(textField.text ?? "Benny")
+      doneEditingName(textField.text ?? Constant.DefaultBlackHoleName)
       return true
     }
     

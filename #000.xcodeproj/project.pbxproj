@@ -118,10 +118,10 @@
 		C93B82191CD32CA100D76803 /* #000 */ = {
 			isa = PBXGroup;
 			children = (
+				C93B821A1CD32CA100D76803 /* AppDelegate.swift */,
 				C93B82651CD3340D00D76803 /* Config */,
 				C93B822D1CD32EF100D76803 /* Models */,
 				C93B822C1CD32EEB00D76803 /* Generators */,
-				C93B821A1CD32CA100D76803 /* AppDelegate.swift */,
 				C93B82471CD32FF300D76803 /* Sprites */,
 				C93B825E1CD330E700D76803 /* SpriteKit Views */,
 				C93B82441CD32FB200D76803 /* Scenes */,
@@ -138,10 +138,10 @@
 		C93B822C1CD32EEB00D76803 /* Generators */ = {
 			isa = PBXGroup;
 			children = (
-				C93B823C1CD32F2100D76803 /* Map Stuff */,
 				C93B822E1CD32F0600D76803 /* CivilizationGenerator.swift */,
-				C93B82321CD32F0600D76803 /* PerlinGenerator.swift */,
 				C93B82341CD32F0600D76803 /* PlanetGenerator.swift */,
+				C93B823C1CD32F2100D76803 /* Map Stuff */,
+				C93B82321CD32F0600D76803 /* PerlinGenerator.swift */,
 			);
 			name = Generators;
 			sourceTree = "<group>";

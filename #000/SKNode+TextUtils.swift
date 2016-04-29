@@ -20,10 +20,10 @@ let FADE_IN = "fadeIn"
 let FADE_OUT = "fadeOut"
 
 func generalTextNode(text: String) -> SKLabelNode {
-  let node = SKLabelNode(fontNamed: "AvenirNext-UltraLight")
+  let node = SKLabelNode(fontNamed: Constant.GenericText.Font.Name)
   node.text = text
-  node.fontSize = UIDevice.currentDevice().userInterfaceIdiom == .Phone ? 22 : 30
-  node.fontColor = .whiteColor()
+  node.fontSize = Constant.GenericText.Font.Size
+  node.fontColor = Constant.GenericText.Font.Color
   node.verticalAlignmentMode = .Center
   node.horizontalAlignmentMode = .Center
   return node
@@ -81,6 +81,17 @@ extension SKNode {
 
   func fadeOut(duration: NSTimeInterval = 1) -> SKNode {
     return self.fadeOut(duration, completion: nil)
+  }
+
+  func fadeOutAfter(after: NSTimeInterval = 1, duration: NSTimeInterval = 1, completion: (() -> Void)? = nil) -> SKNode {
+    self.removeActionForKey(FADE_IN)
+    self.removeActionForKey(FADE_OUT)
+
+    self.runAction(SKAction.sequence([
+      SKAction.waitForDuration(after),
+      SKAction.fadeOutWithDuration(duration)
+      ]), withKey: FADE_OUT, completion: completion)
+    return self
   }
 
   // MARK: Utils
