@@ -17,4 +17,12 @@ struct Constant {
   struct SpriteKeys {
     static var DustParticle = "dust_particle"
   }
+  struct StateKeys {
+    struct CreateUniverse {
+      enum TextState {
+        case TapAndHold
+        case KeepHolding
+      }
+    }
+  }
 }

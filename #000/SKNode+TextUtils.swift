@@ -40,14 +40,15 @@ extension SKNode {
 
   func fadeIn(duration: NSTimeInterval, completion: (() -> Void)?) -> SKNode {
     // remove all fadeIn and fadeOut actions
-    self.removeActionForKey(FADE_IN)
-    self.removeActionForKey(FADE_OUT)
-    self.alpha = 0
-    if let completion = completion {
-      self.runAction(SKAction.fadeInWithDuration(duration), withKey: FADE_IN, completion: completion)
+    if self.actionForKey(FADE_IN) != nil || self.actionForKey(FADE_OUT) != nil {
+      self.removeActionForKey(FADE_IN)
+      self.removeActionForKey(FADE_OUT)
     } else {
-      self.runAction(SKAction.fadeInWithDuration(duration), withKey: FADE_IN)
+      self.alpha = 0
     }
+
+    self.runAction(SKAction.fadeInWithDuration(duration), withKey: FADE_IN, completion: completion)
+
     return self
   }
 
@@ -63,7 +64,7 @@ extension SKNode {
     self.runAction(SKAction.sequence([
       SKAction.waitForDuration(after),
       SKAction.fadeInWithDuration(duration)
-    ]))
+    ]), withKey: FADE_IN)
     return self
   }
 
@@ -73,12 +74,8 @@ extension SKNode {
     self.removeActionForKey(FADE_IN)
     self.removeActionForKey(FADE_OUT)
 
-    if let completion = completion {
-      self.runAction(SKAction.fadeOutWithDuration(duration), withKey: FADE_OUT, completion: completion)
-    } else {
-      self.runAction(SKAction.fadeOutWithDuration(duration), withKey: FADE_OUT)
+    self.runAction(SKAction.fadeOutWithDuration(duration), withKey: FADE_OUT, completion: completion)
 
-    }
     return self
   }
 
@@ -91,11 +88,11 @@ extension SKNode {
   func runAction(action: SKAction!, withKey: String!, completion: (() -> Void)?)
   {
     if let completion = completion {
-      let completionAction = SKAction.runBlock( completion )
-      let compositeAction = SKAction.sequence([ action, completionAction ])
-      runAction( compositeAction, withKey: withKey )
+      let completionAction = SKAction.runBlock(completion)
+      let compositeAction = SKAction.sequence([action, completionAction])
+      runAction(compositeAction, withKey: withKey)
     } else {
-      runAction( action, withKey: withKey )
+      runAction(action, withKey: withKey)
     }
   }
 

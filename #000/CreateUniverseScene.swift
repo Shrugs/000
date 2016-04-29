@@ -18,8 +18,14 @@ class CreateUniverseScene: SKScene {
 
   let container = SKNode()
 
-  var tapAndHoldNode : SKLabelNode!
-  var keepHoldingNode : SKLabelNode?
+  lazy var tapAndHoldNode : SKLabelNode = { [unowned self] in
+    return generalTextNode("tap and hold").setPos(to: self.textNodePosition) as! SKLabelNode
+  }()
+
+  lazy var keepHoldingNode : SKLabelNode = { [unowned self] in
+    return generalTextNode("keep holding").setPos(to: self.textNodePosition) as! SKLabelNode
+  }()
+
   var gravityField : SKFieldNode?
   var gravitySingularity : SKShapeNode?
 
@@ -46,12 +52,13 @@ class CreateUniverseScene: SKScene {
     backgroundColor = Constant.Color.SpaceBackground
     physicsWorld.gravity = CGVector(dx: 0, dy: 0)
 
-    tapAndHoldNode = generalTextNode("tap and hold")
-      .setPos(to: textNodePosition)
-      .fadeInAfter(1, duration: 1) as! SKLabelNode
-    container.addChild(tapAndHoldNode)
-
     addChild(container)
+
+    keepHoldingNode.alpha = 0
+    container.addChild(keepHoldingNode)
+
+    container.addChild(tapAndHoldNode)
+    setTextState(.TapAndHold)
   }
 
   override func didSimulatePhysics() {
@@ -147,6 +154,29 @@ class CreateUniverseScene: SKScene {
     return gravityField
   }
 
+  var previousState : Constant.StateKeys.CreateUniverse.TextState?
+
+  func setTextState(state: Constant.StateKeys.CreateUniverse.TextState) {
+    switch state {
+    case .KeepHolding:
+      // fade out tap and fade in keep Holding
+      tapAndHoldNode.fadeOut(1.0)
+      keepHoldingNode.fadeInAfter(2, duration: 1)
+    case .TapAndHold: fallthrough
+    default:
+      if let _ = previousState {
+        // by default
+        keepHoldingNode.fadeOut(0.4)
+        tapAndHoldNode.fadeInAfter(1.0, duration: 1.0)
+      } else {
+        // first run
+        tapAndHoldNode.fadeInAfter(1.0, duration: 1.0)
+      }
+    }
+
+    previousState = state
+  }
+
   // MARK: Big Bang Stuff
 
   func triggerBigBang() {
@@ -160,7 +190,8 @@ class CreateUniverseScene: SKScene {
       endCreatingDust()
 
       // fade out text
-      keepHoldingNode?.fadeOut(0.2)
+      tapAndHoldNode.fadeOut(0.2)  // just in case
+      keepHoldingNode.fadeOut(0.2)
 
       // start big bang animations
       let bigBangParticleEmitter = SKEmitterNode(fileNamed: "BigBang.sks")!
@@ -207,13 +238,7 @@ class CreateUniverseScene: SKScene {
       beginCreatingDust()
 
       // fade out the tapAndHoldNode, create the keepHoldingNode if not exists
-      tapAndHoldNode.fadeOut(1.0)
-      if self.keepHoldingNode == nil {
-        self.keepHoldingNode = generalTextNode("keep holding")
-          .setPos(to: self.textNodePosition) as? SKLabelNode
-        self.container.addChild(self.keepHoldingNode!)
-      }
-      self.keepHoldingNode?.fadeInAfter(2, duration: 1)
+      setTextState(.KeepHolding)
 
       // start the big bang timer
       bigBangTimer = NSTimer.schedule(delay: BIG_BANG_HOLD_TIME) {[unowned self] timer in
@@ -240,12 +265,13 @@ class CreateUniverseScene: SKScene {
     // stop big bang timer
     bigBangTimer?.invalidate()
 
-    // if the big bang occured
-    if bigBangOccurred {
+    // fade out keep holding regardless
+    setTextState(.TapAndHold)
 
+    if bigBangOccurred {
+      // if the big bang occured
     } else {
       // if the big Bang hasn't happened, fade the original text back in
-      keepHoldingNode?.fadeOut(1)
       self.tapAndHoldNode.fadeInAfter(1, duration: 1)
     }
   }
