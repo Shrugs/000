@@ -12,8 +12,6 @@ import UIKit
 class TamagatchiScene: SKScene {
 
   let container = SKNode()
-
-  let isFirstRun = true
   let blackHole = BlackHole()
 
   lazy var blackHolePosition : CGPoint = { [unowned self] in
@@ -53,11 +51,15 @@ class TamagatchiScene: SKScene {
   override func didMoveToView(view: SKView) {
     backgroundColor = Constant.Color.SpaceBackground
 
+    // Subscribe to Keyboard Notifications
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TamagatchiScene.keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TamagatchiScene.keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
 
     addChild(container)
 
+    let isFirstRun = GeneralState.hasIntroducedBlackHole
+
+    // Create Star Fields
     container.addChild(newStarField(color: SKColor.darkGrayColor(), speed: 15, starsPerSecond: 1, scale: 0.05, filled: !isFirstRun))
     container.addChild(newStarField(color: SKColor.grayColor(), speed: 20, starsPerSecond: 0.001, scale: 0.08, filled: !isFirstRun))
 
@@ -65,6 +67,7 @@ class TamagatchiScene: SKScene {
     container.addChild(blackHole)
 
     if isFirstRun {
+      GeneralState.hasIntroducedBlackHole = true
       // if it's the first run, introduce the black hole
       self.introduceBlackHoleNode
         .fadeIn()
@@ -95,7 +98,12 @@ class TamagatchiScene: SKScene {
         }
       }
     } else {
-      // otherwise don't bother animating it
+      // do some stuff normally
+
+      let earth = CivilizationGenerator(civType: 0.7125, colorScheme: Constant.MapGenerator.DefaultColorScheme, zoom: 2.0, persistence: 1.0).generate()
+      let earthNode = PlanetSprite(withCiv: earth)
+      earthNode.position = CGPoint(x: view.frame.size.width/2.0, y: view.frame.size.height/2.0)
+      container.addChild(earthNode)
     }
   }
 

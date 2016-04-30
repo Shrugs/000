@@ -54,3 +54,23 @@ struct PixelDrawer {
   }
 
 }
+
+extension UIColor {
+  var pixelData : PixelData {
+    get {
+      var red : CGFloat = 0
+      var green : CGFloat = 0
+      var blue : CGFloat = 0
+      var alpha : CGFloat = 0
+
+      getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+
+      return PixelData(
+        a: UInt8(alpha * 255),
+        r: UInt8(red * 255),
+        g: UInt8(green * 255),
+        b: UInt8(blue * 255)
+      )
+    }
+  }
+}

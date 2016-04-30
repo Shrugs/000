@@ -8,9 +8,10 @@
 
 import UIKit
 import HEXColor
+import CoreGraphics
 
 struct Constant {
-  static var DefaultBlackHoleName = "Benny"
+  static var DefaultBlackHoleName = "Benji"
 
   struct GenericText {
     struct Font {
@@ -34,8 +35,16 @@ struct Constant {
       enum TextState {
         case TapAndHold
         case KeepHolding
+        case BigBanged
       }
     }
+  }
+
+  struct MapGenerator {
+    static var MapSize = CGSize(width: 256, height: 256)
+    static var DefaultColorScheme = [
+      Biome.Ocean: UIColor(rgba: "#0DC2FF")
+    ]
   }
 
 }

@@ -158,6 +158,9 @@ class CreateUniverseScene: SKScene {
 
   func setTextState(state: Constant.StateKeys.CreateUniverse.TextState) {
     switch state {
+    case .BigBanged:
+      tapAndHoldNode.fadeOut(0.2) { self.tapAndHoldNode.removeFromParent() }
+      keepHoldingNode.fadeOut(0.2) { self.keepHoldingNode.removeFromParent() }
     case .KeepHolding:
       // fade out tap and fade in keep Holding
       tapAndHoldNode.fadeOut(1.0)
@@ -270,9 +273,8 @@ class CreateUniverseScene: SKScene {
 
     if bigBangOccurred {
       // if the big bang occured
-    } else {
-      // if the big Bang hasn't happened, fade the original text back in
-      self.tapAndHoldNode.fadeInAfter(1, duration: 1)
+      setTextState(.BigBanged)
+
     }
   }
 }

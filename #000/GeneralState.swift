@@ -19,4 +19,15 @@ class GeneralState {
       defaults.synchronize()
     }
   }
+
+  static var hasIntroducedBlackHole : Bool {
+    get {
+      return NSUserDefaults.standardUserDefaults().objectForKey("hasIntroducedBlackHole")?.boolValue ?? false
+    }
+    set {
+      let defaults = NSUserDefaults.standardUserDefaults()
+      defaults.setBool(newValue, forKey: "hasIntroducedBlackHole")
+      defaults.synchronize()
+    }
+  }
 }
