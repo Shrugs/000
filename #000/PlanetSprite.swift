@@ -40,6 +40,6 @@ class PlanetSprite : SK3DNode {
     physicsBody?.contactTestBitMask = Constant.SpriteMasks.BlackHole
     physicsBody?.fieldBitMask = 0
 
-    zPosition = -1
+    zPosition = -2
   }
 }

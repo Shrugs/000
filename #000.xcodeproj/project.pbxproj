@@ -51,6 +51,9 @@
 		C93B82841CD44EEF00D76803 /* Array+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82831CD44EEF00D76803 /* Array+Sample.swift */; };
 		C93B82861CD4708B00D76803 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93B82851CD4708B00D76803 /* CoreGraphics.framework */; };
 		C93B82881CD4709100D76803 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93B82871CD4709100D76803 /* CoreImage.framework */; };
+		C9695E4E1CD5E6F200B03462 /* event_horizon.png in Resources */ = {isa = PBXBuildFile; fileRef = C9695E4D1CD5E6F200B03462 /* event_horizon.png */; };
+		C9695E511CD5E7A000B03462 /* excited.atlas in Resources */ = {isa = PBXBuildFile; fileRef = C9695E4F1CD5E7A000B03462 /* excited.atlas */; };
+		C9695E521CD5E7A000B03462 /* idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = C9695E501CD5E7A000B03462 /* idle.atlas */; };
 		C97121651CD5AAD7009100DD /* ShatterPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97121641CD5AAD7009100DD /* ShatterPiece.swift */; };
 		C97121671CD5B60F009100DD /* Test.sks in Resources */ = {isa = PBXBuildFile; fileRef = C97121661CD5B60F009100DD /* Test.sks */; };
 		C97121691CD5CE1F009100DD /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97121681CD5CE1F009100DD /* SKButton.swift */; };
@@ -103,6 +106,9 @@
 		C93B82831CD44EEF00D76803 /* Array+Sample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Sample.swift"; sourceTree = "<group>"; };
 		C93B82851CD4708B00D76803 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C93B82871CD4709100D76803 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		C9695E4D1CD5E6F200B03462 /* event_horizon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = event_horizon.png; sourceTree = "<group>"; };
+		C9695E4F1CD5E7A000B03462 /* excited.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = excited.atlas; sourceTree = "<group>"; };
+		C9695E501CD5E7A000B03462 /* idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = idle.atlas; sourceTree = "<group>"; };
 		C97121641CD5AAD7009100DD /* ShatterPiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShatterPiece.swift; sourceTree = "<group>"; };
 		C97121661CD5B60F009100DD /* Test.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Test.sks; sourceTree = "<group>"; };
 		C97121681CD5CE1F009100DD /* SKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKButton.swift; sourceTree = "<group>"; };
@@ -253,6 +259,9 @@
 		C93B824D1CD3303200D76803 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C9695E4F1CD5E7A000B03462 /* excited.atlas */,
+				C9695E501CD5E7A000B03462 /* idle.atlas */,
+				C9695E4D1CD5E6F200B03462 /* event_horizon.png */,
 				C93B82521CD3306800D76803 /* spark.png */,
 				C93B82531CD3306800D76803 /* star.png */,
 				C93B824E1CD3303D00D76803 /* benny.atlas */,
@@ -337,8 +346,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C93B82571CD3307600D76803 /* BigBang.sks in Resources */,
+				C9695E511CD5E7A000B03462 /* excited.atlas in Resources */,
 				C93B82251CD32CA100D76803 /* LaunchScreen.storyboard in Resources */,
+				C9695E521CD5E7A000B03462 /* idle.atlas in Resources */,
 				C97121671CD5B60F009100DD /* Test.sks in Resources */,
+				C9695E4E1CD5E6F200B03462 /* event_horizon.png in Resources */,
 				C93B82551CD3306800D76803 /* star.png in Resources */,
 				C93B82541CD3306800D76803 /* spark.png in Resources */,
 				C93B824F1CD3303D00D76803 /* benny.atlas in Resources */,

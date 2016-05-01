@@ -105,6 +105,9 @@ class TamagatchiScene: SKScene {
       }
     } else {
       // do some stuff normally
+
+      blackHole.introduceEventHorizon()
+      
       introduceEarth()
     }
   }
@@ -120,6 +123,8 @@ class TamagatchiScene: SKScene {
       .setPos(to: skLoc)
       .fadeInAfter(1, duration: 1)
     container.addChild(self.destroyerOfWorldsNode)
+
+    blackHole.introduceEventHorizon()
 
     self.iAmNode.fadeOutAfter(3.0, duration: 1) {
       UIView.animateWithDuration(1.0, animations: {
@@ -170,7 +175,9 @@ class TamagatchiScene: SKScene {
 
       let doneButton = SKButton(text: "nice") { button in
         button.fadeOutAndRemoveAfter(1.0, duration: 0.2)
-        self.fadeOutLabels(labels) {}
+        self.fadeOutLabels(labels) {
+          self.continueDriftingThroughSpace()
+        }
       }
 
       doneButton
@@ -264,14 +271,18 @@ class TamagatchiScene: SKScene {
     presentLabels(information) { labels in
       NSTimer.schedule(delay: 3.0) { timer in
         self.fadeOutLabels(labels) {
-          generalTextNode("\(GeneralState.blackHoleName) continues drifting\nthrough space.")
-            .setPos(to: self.textNodePosition)
-            .addTo(self.container)
-            .fadeInAfter(1.0, duration: 1.0)
-            .fadeOutAndRemoveAfter(5, duration: 3.0)
+          self.continueDriftingThroughSpace()
         }
       }
     }
+  }
+
+  func continueDriftingThroughSpace() {
+    generalTextNode("\(GeneralState.blackHoleName) continues drifting\nthrough space.")
+      .setPos(to: self.textNodePosition)
+      .addTo(self.container)
+      .fadeInAfter(1.0, duration: 1.0)
+      .fadeOutAndRemoveAfter(5, duration: 3.0)
   }
 
   // MARK: Actually Introduce Sprites
@@ -288,9 +299,9 @@ class TamagatchiScene: SKScene {
     case Done
   }
 
-  let thetaStep : Double = 0.3
+  let thetaStep : Double = 0.2
   let totalTheta : Double = 2 * M_PI
-  let radiusStep : Double = 5
+  let radiusStep : Double = 3
 
   var shatters : [SKNode]?
 
@@ -301,6 +312,7 @@ class TamagatchiScene: SKScene {
   func setConsumptionState(state: ConsumptionState) {
 
     if state == .Consuming {
+      blackHole.beginConsuming()
       // start shaking until done
       shakeTimer = NSTimer.schedule(repeatInterval: 1.0) { timer in
         self.container.runAction(SKAction.shake(1.0))
@@ -308,6 +320,7 @@ class TamagatchiScene: SKScene {
     }
 
     if state == .Done {
+      blackHole.endConsuming()
       shakeTimer?.invalidate()
       // show the stats for the civilization
       // fade out any extra shatters
@@ -366,17 +379,18 @@ class TamagatchiScene: SKScene {
         let planetNameNode = generalTextNode(civilization.name)
           .setFont(to: Constant.GenericText.BoldFont.Name)
           .setPos(to: secondTextNodePosition)
+          .addTo(container)
           .fadeInAfter(2, duration: 1)
-        container.addChild(planetNameNode)
 
         let wait : Double = 5
 
         youveEncounteredNode.fadeOutAfter(wait, duration: 1.0) { youveEncounteredNode.removeFromParent() }
         planetNameNode.fadeOutAfter(wait + 1, duration: 1.0) {
           planetNameNode.removeFromParent()
-          // Then set to FreeFalling
-          self.setConsumptionState(.Freefalling)
         }
+
+        // Then set to FreeFalling
+        self.setConsumptionState(.Freefalling)
       }
 
       if state == .Freefalling {
