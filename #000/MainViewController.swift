@@ -22,7 +22,10 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     becomeFirstResponder()
+
     view.backgroundColor = Constant.Color.SpaceBackground
+
+    CivilizationGenerator.generateDefaultPlanets()
 
     // when the app is started, load the correct view
     self.skView = DefaultSKView()
@@ -71,11 +74,7 @@ class MainViewController: UIViewController {
 
   override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
     if motion == .MotionShake {
-      let defaults = NSUserDefaults.standardUserDefaults()
-      for key in defaults.dictionaryRepresentation().keys {
-        defaults.removeObjectForKey(key)
-      }
-      defaults.synchronize()
+      Debug.reset()
     }
   }
 

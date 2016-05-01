@@ -18,7 +18,6 @@ enum Biome {
   case TemperateDesert
   case Shrubland
   case Scorched
-  case Bare
   case Taiga
   case Tundra
   case Snow

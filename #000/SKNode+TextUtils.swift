@@ -29,6 +29,13 @@ func generalTextNode(text: String) -> SKLabelNode {
   return node
 }
 
+extension SKLabelNode {
+  func setFont(to fontName: String) -> SKNode {
+    self.fontName = fontName
+    return self
+  }
+}
+
 extension SKNode {
 
   func setPos(to position: CGPoint) -> SKNode {
@@ -40,9 +47,8 @@ extension SKNode {
 
   func fadeIn(duration: NSTimeInterval, completion: (() -> Void)?) -> SKNode {
     // remove all fadeIn and fadeOut actions
-    if self.actionForKey(FADE_IN) != nil || self.actionForKey(FADE_OUT) != nil {
+    if self.actionForKey(FADE_IN) != nil {
       self.removeActionForKey(FADE_IN)
-      self.removeActionForKey(FADE_OUT)
     } else {
       self.alpha = 0
     }
@@ -59,7 +65,6 @@ extension SKNode {
   func fadeInAfter(after: NSTimeInterval = 1, duration: NSTimeInterval = 1) -> SKNode {
     self.alpha = 0
     self.removeActionForKey(FADE_IN)
-    self.removeActionForKey(FADE_OUT)
 
     self.runAction(SKAction.sequence([
       SKAction.waitForDuration(after),
@@ -71,7 +76,6 @@ extension SKNode {
   // MARK: Fade Out
 
   func fadeOut(duration: NSTimeInterval, completion: (() -> Void)?) -> SKNode {
-    self.removeActionForKey(FADE_IN)
     self.removeActionForKey(FADE_OUT)
 
     self.runAction(SKAction.fadeOutWithDuration(duration), withKey: FADE_OUT, completion: completion)
@@ -84,7 +88,6 @@ extension SKNode {
   }
 
   func fadeOutAfter(after: NSTimeInterval = 1, duration: NSTimeInterval = 1, completion: (() -> Void)? = nil) -> SKNode {
-    self.removeActionForKey(FADE_IN)
     self.removeActionForKey(FADE_OUT)
 
     self.runAction(SKAction.sequence([

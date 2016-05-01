@@ -26,6 +26,7 @@ extension SKScene {
     // Position in the middle at top of the screen
     emitterNode.position = CGPoint(x: frame.size.width/2, y: frame.size.height)
     emitterNode.particlePositionRange = CGVector(dx: frame.size.width, dy: 0)
+    emitterNode.zPosition = -1000
 
     if filled {
       // Fast forward the effect to start with a filled screen

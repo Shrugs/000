@@ -30,4 +30,15 @@ class GeneralState {
       defaults.synchronize()
     }
   }
+
+  static var blackHoleName : String {
+    get {
+      return NSUserDefaults.standardUserDefaults().objectForKey("blackHoleName")?.stringValue ?? Constant.DefaultBlackHoleName
+    }
+    set {
+      let defaults = NSUserDefaults.standardUserDefaults()
+      defaults.setObject(newValue, forKey: "blackHoleName")
+      defaults.synchronize()
+    }
+  }
 }

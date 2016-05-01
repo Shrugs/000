@@ -10,11 +10,14 @@ import UIKit
 import SceneKit
 import SpriteKit
 
+let MASS_OF_PLANET : CGFloat = 20
+
 class PlanetSprite : SK3DNode {
+  
   convenience init(withCiv civ: Civilization) {
     self.init(viewportSize: CGSize(width: civ.size, height: civ.size))
 
-    let planetScene = PlanetScene(withImage: UIImage(contentsOfFile: civ.mapUrl)!)
+    let planetScene = PlanetScene(withImage: UIImage(contentsOfFile: DocumentsDirectory.stringByAppendingPathComponent(civ.mapUrl))!)
     scnScene = planetScene
     
     let myCamera = SCNCamera()
@@ -22,10 +25,21 @@ class PlanetSprite : SK3DNode {
     myCamera.yFov = 40
     let myCameraNode = SCNNode()
     myCameraNode.camera = myCamera
-    myCameraNode.position = SCNVector3(x: 0, y: 0, z: 2)
+    myCameraNode.position = SCNVector3(x: 0, y: 0, z: 1.5)
     myCameraNode.orientation = SCNQuaternion(x: 0, y: 0, z: 0.5, w: 1)
     pointOfView = myCameraNode
 
     autoenablesDefaultLighting = true
+
+    physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(civ.size) / 2.0)
+    physicsBody?.mass = MASS_OF_PLANET
+    physicsBody?.affectedByGravity = false
+
+    physicsBody?.categoryBitMask = Constant.SpriteMasks.Planet
+    physicsBody?.collisionBitMask = 0
+    physicsBody?.contactTestBitMask = Constant.SpriteMasks.BlackHole
+    physicsBody?.fieldBitMask = 0
+
+    zPosition = -1
   }
 }

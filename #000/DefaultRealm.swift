@@ -1,4 +1,4 @@
-//
+
 //  DefaultRealm.swift
 //  #000
 //
@@ -11,7 +11,7 @@ import RealmSwift
 let DefaultRealm : Realm = {
 
   var config = Realm.Configuration()
-  config.schemaVersion = 1
+  config.schemaVersion = 3
   config.migrationBlock = { migration, oldSchemaVersion in
   }
 

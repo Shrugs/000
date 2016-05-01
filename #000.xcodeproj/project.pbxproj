@@ -46,8 +46,13 @@
 		C93B82781CD40DF200D76803 /* DefaultRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82771CD40DF200D76803 /* DefaultRealm.swift */; };
 		C93B827A1CD41E9D00D76803 /* DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82791CD41E9D00D76803 /* DocumentsDirectory.swift */; };
 		C93B827C1CD424C700D76803 /* PlanetScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B827B1CD424C700D76803 /* PlanetScene.swift */; };
-		C93B827E1CD425F300D76803 /* String+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B827D1CD425F300D76803 /* String+Random.swift */; };
 		C93B82801CD4304E00D76803 /* PlanetSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B827F1CD4304E00D76803 /* PlanetSprite.swift */; };
+		C93B82821CD43AB000D76803 /* ColorSchemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82811CD43AB000D76803 /* ColorSchemes.swift */; };
+		C93B82841CD44EEF00D76803 /* Array+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B82831CD44EEF00D76803 /* Array+Sample.swift */; };
+		C93B82861CD4708B00D76803 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93B82851CD4708B00D76803 /* CoreGraphics.framework */; };
+		C93B82881CD4709100D76803 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93B82871CD4709100D76803 /* CoreImage.framework */; };
+		C97121651CD5AAD7009100DD /* ShatterPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97121641CD5AAD7009100DD /* ShatterPiece.swift */; };
+		C97121671CD5B60F009100DD /* Test.sks in Resources */ = {isa = PBXBuildFile; fileRef = C97121661CD5B60F009100DD /* Test.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,8 +97,13 @@
 		C93B82771CD40DF200D76803 /* DefaultRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRealm.swift; sourceTree = "<group>"; };
 		C93B82791CD41E9D00D76803 /* DocumentsDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsDirectory.swift; sourceTree = "<group>"; };
 		C93B827B1CD424C700D76803 /* PlanetScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetScene.swift; sourceTree = "<group>"; };
-		C93B827D1CD425F300D76803 /* String+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Random.swift"; sourceTree = "<group>"; };
 		C93B827F1CD4304E00D76803 /* PlanetSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetSprite.swift; sourceTree = "<group>"; };
+		C93B82811CD43AB000D76803 /* ColorSchemes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSchemes.swift; sourceTree = "<group>"; };
+		C93B82831CD44EEF00D76803 /* Array+Sample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Sample.swift"; sourceTree = "<group>"; };
+		C93B82851CD4708B00D76803 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C93B82871CD4709100D76803 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		C97121641CD5AAD7009100DD /* ShatterPiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShatterPiece.swift; sourceTree = "<group>"; };
+		C97121661CD5B60F009100DD /* Test.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Test.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C93B82881CD4709100D76803 /* CoreImage.framework in Frameworks */,
+				C93B82861CD4708B00D76803 /* CoreGraphics.framework in Frameworks */,
 				C93B82751CD40C5300D76803 /* Realm.framework in Frameworks */,
 				C93B82761CD40C5300D76803 /* RealmSwift.framework in Frameworks */,
 				C93B826D1CD337CD00D76803 /* SceneKit.framework in Frameworks */,
@@ -115,6 +127,8 @@
 		C93B820E1CD32CA100D76803 = {
 			isa = PBXGroup;
 			children = (
+				C93B82871CD4709100D76803 /* CoreImage.framework */,
+				C93B82851CD4708B00D76803 /* CoreGraphics.framework */,
 				C93B82731CD40C5300D76803 /* Realm.framework */,
 				C93B82741CD40C5300D76803 /* RealmSwift.framework */,
 				C93B826F1CD3382200D76803 /* HEXColor.framework */,
@@ -149,6 +163,7 @@
 				C93B824D1CD3303200D76803 /* Images */,
 				C93B82231CD32CA100D76803 /* LaunchScreen.storyboard */,
 				C93B82261CD32CA100D76803 /* Info.plist */,
+				C97121661CD5B60F009100DD /* Test.sks */,
 			);
 			path = "#000";
 			sourceTree = "<group>";
@@ -211,6 +226,7 @@
 			children = (
 				C93B82481CD32FFE00D76803 /* BlackHole.swift */,
 				C93B827F1CD4304E00D76803 /* PlanetSprite.swift */,
+				C97121641CD5AAD7009100DD /* ShatterPiece.swift */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -226,7 +242,7 @@
 				C93B82681CD337BA00D76803 /* SKNode+Spring.swift */,
 				C93B82711CD3386700D76803 /* Debug.swift */,
 				C93B82791CD41E9D00D76803 /* DocumentsDirectory.swift */,
-				C93B827D1CD425F300D76803 /* String+Random.swift */,
+				C93B82831CD44EEF00D76803 /* Array+Sample.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -253,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				C93B82661CD3341700D76803 /* Constants.swift */,
+				C93B82811CD43AB000D76803 /* ColorSchemes.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -318,6 +335,7 @@
 			files = (
 				C93B82571CD3307600D76803 /* BigBang.sks in Resources */,
 				C93B82251CD32CA100D76803 /* LaunchScreen.storyboard in Resources */,
+				C97121671CD5B60F009100DD /* Test.sks in Resources */,
 				C93B82551CD3306800D76803 /* star.png in Resources */,
 				C93B82541CD3306800D76803 /* spark.png in Resources */,
 				C93B824F1CD3303D00D76803 /* benny.atlas in Resources */,
@@ -334,7 +352,7 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/HexColor.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/HEXColor.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
@@ -365,22 +383,24 @@
 				C93B82591CD3308900D76803 /* GlobalHelpers.swift in Sources */,
 				C93B82461CD32FD900D76803 /* TamagotchiScene.swift in Sources */,
 				C93B82781CD40DF200D76803 /* DefaultRealm.swift in Sources */,
+				C93B82821CD43AB000D76803 /* ColorSchemes.swift in Sources */,
 				C93B82621CD3316C00D76803 /* CreateUniverseScene.swift in Sources */,
 				C93B82381CD32F0600D76803 /* NormalMapFilter.swift in Sources */,
 				C93B825B1CD330B500D76803 /* NSTimer+Blocks.swift in Sources */,
 				C93B82511CD3305200D76803 /* SKScene+StarField.swift in Sources */,
-				C93B827E1CD425F300D76803 /* String+Random.swift in Sources */,
 				C93B82361CD32F0600D76803 /* Field.swift in Sources */,
 				C93B82421CD32F6F00D76803 /* Biome.swift in Sources */,
 				C93B82401CD32F5D00D76803 /* ColorScheme.swift in Sources */,
 				C93B82641CD331C700D76803 /* GeneralState.swift in Sources */,
 				C93B82491CD32FFE00D76803 /* BlackHole.swift in Sources */,
+				C93B82841CD44EEF00D76803 /* Array+Sample.swift in Sources */,
 				C93B823E1CD32F3600D76803 /* Civilization.swift in Sources */,
 				C93B82721CD3386700D76803 /* Debug.swift in Sources */,
 				C93B821B1CD32CA100D76803 /* AppDelegate.swift in Sources */,
 				C93B823A1CD32F0600D76803 /* PixelData.swift in Sources */,
 				C93B827C1CD424C700D76803 /* PlanetScene.swift in Sources */,
 				C93B82391CD32F0600D76803 /* PerlinGenerator.swift in Sources */,
+				C97121651CD5AAD7009100DD /* ShatterPiece.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +554,7 @@
 				C93B822B1CD32CA100D76803 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

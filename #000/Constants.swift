@@ -19,6 +19,11 @@ struct Constant {
       static var Name = "AvenirNext-UltraLight"
       static var Color = UIColor.whiteColor()
     }
+    struct BoldFont {
+      static var Size : CGFloat = UIDevice.currentDevice().userInterfaceIdiom == .Phone ? 22 : 30
+      static var Name = "AvenirNext-Bold"
+      static var Color = UIColor.whiteColor()
+    }
   }
 
   struct Color {
@@ -28,6 +33,22 @@ struct Constant {
 
   struct SpriteKeys {
     static var DustParticle = "dust_particle"
+    static var ShatterPiece = "shatter_piece"
+    static var Planet = "planet"
+    static var BlackHole = "black_hole"
+    static var BlackHoleSingularity = "black_hole"
+  }
+
+  struct SpriteMasks {
+    static var DustParticle          : UInt32 = 1
+    static var ShatterPiece          : UInt32 = 2
+    static var Planet                : UInt32 = 4
+    static var BlackHole             : UInt32 = 8
+    static var BlackHoleSingularity  : UInt32 = 16
+  }
+
+  struct FieldMasks {
+    static var BlackHoleField  : UInt32 = 1
   }
 
   struct StateKeys {
@@ -42,9 +63,7 @@ struct Constant {
 
   struct MapGenerator {
     static var MapSize = CGSize(width: 256, height: 256)
-    static var DefaultColorScheme = [
-      Biome.Ocean: UIColor(rgba: "#0DC2FF")
-    ]
+    static var DefaultColorSchemeIndex : Int = 0
   }
 
 }

@@ -53,7 +53,6 @@ class MapGenerator {
     if elevation > 0.8 {
       switch humidity {
       case let h where h < 0.1:  return .Scorched
-      case let h where h < 0.2:  return .Bare
       case let h where h < 0.5:  return .Tundra
       default:                   return .Snow
       }

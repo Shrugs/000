@@ -22,14 +22,19 @@ class Civilization : Object {
   dynamic var mostRecentInvention : String = ""
   dynamic var almostInvented : String = ""
   dynamic var size : Double = 0
+  dynamic var colorSchemeIndex : Int = 0
 
   dynamic var consumedAt : NSDate? = nil
 
-  var energyConsumption : Double {
-    get {
-      // https://en.wikipedia.org/wiki/Kardashev_scale
-      return pow(10, 10 * civilizationType) + 6
-    }
+//  var energyConsumption : Double {
+//    get {
+//      // https://en.wikipedia.org/wiki/Kardashev_scale
+//      return pow(10, 10 * civilizationType) + 6
+//    }
+//  }
+
+  override static func primaryKey() -> String? {
+    return "name"
   }
 
 }
