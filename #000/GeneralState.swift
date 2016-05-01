@@ -33,7 +33,7 @@ class GeneralState {
 
   static var blackHoleName : String {
     get {
-      return NSUserDefaults.standardUserDefaults().objectForKey("blackHoleName")?.stringValue ?? Constant.DefaultBlackHoleName
+      return NSUserDefaults.standardUserDefaults().stringForKey("blackHoleName") ?? Constant.DefaultBlackHoleName
     }
     set {
       let defaults = NSUserDefaults.standardUserDefaults()
