@@ -48,7 +48,7 @@ class BlackHole: SKNode {
 
   lazy var eventHorizon : SKSpriteNode = { [unowned self] in
     let eventHorizon = SKSpriteNode(texture: SKTexture(imageNamed: "event_horizon"))
-    eventHorizon.size = CGSize(width: blackHoleRadius * 2.5, height: blackHoleRadius * 2.5)
+    eventHorizon.size = CGSize(width: blackHoleRadius * 2.7, height: blackHoleRadius * 2.7)
     eventHorizon.zPosition = -1
 //    for texture in self.eventHorizonAtlas.textureNames.sort() {
 //      self.eventHorizonFrames.append(self.eventHorizonAtlas.textureNamed(texture))

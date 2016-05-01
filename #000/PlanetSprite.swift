@@ -17,7 +17,9 @@ class PlanetSprite : SK3DNode {
   convenience init(withCiv civ: Civilization) {
     self.init(viewportSize: CGSize(width: civ.size, height: civ.size))
 
-    let planetScene = PlanetScene(withImage: UIImage(contentsOfFile: DocumentsDirectory.stringByAppendingPathComponent(civ.mapUrl))!)
+    let filename = ((civ.mapUrl as NSString).lastPathComponent as NSString).stringByDeletingPathExtension
+    let imageLocation = BundleDirectory.pathForResource(filename, ofType: "png")!
+    let planetScene = PlanetScene(withImage: UIImage(contentsOfFile: imageLocation)!)
     scnScene = planetScene
     
     let myCamera = SCNCamera()

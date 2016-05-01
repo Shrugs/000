@@ -107,8 +107,7 @@ class TamagatchiScene: SKScene {
       // do some stuff normally
 
       blackHole.introduceEventHorizon()
-      
-      introduceEarth()
+      setInSpaceState(.InSpace)
     }
   }
 
@@ -138,6 +137,11 @@ class TamagatchiScene: SKScene {
   }
 
   func showCivilizationStats(civ: Civilization) {
+    // I'm going to assume the civ has been destroyed at this point
+    try! DefaultRealm.write {
+      civ.consumedAt = NSDate()
+      DefaultRealm.add(civ, update: true)
+    }
 
     let config : [[String: String]] = [
       [
@@ -233,7 +237,7 @@ class TamagatchiScene: SKScene {
 
   func introduceEarth() {
     // Earth fuckin D I E S
-    introduceCivilizationByName("Balderan")
+    introduceCivilizationByName("Earth")
   }
 
   func introduceCivilizationByName( name: String) {
@@ -273,19 +277,24 @@ class TamagatchiScene: SKScene {
     presentLabels(information) { labels in
       NSTimer.schedule(delay: 3.0) { timer in
         self.fadeOutLabels(labels) {
-          self.continueDriftingThroughSpace()
+          self.continueDriftingThroughSpace(true)
         }
       }
     }
   }
 
-  func continueDriftingThroughSpace() {
+  func continueDriftingThroughSpace(isEndGame: Bool = false) {
     generalTextNode("\(GeneralState.blackHoleName) continues drifting\nthrough space.")
       .toMultilineNode()
       .setPos(to: self.textNodePosition)
       .addTo(self.container)
       .fadeInAfter(1.0, duration: 1.0)
-      .fadeOutAndRemoveAfter(5, duration: 3.0)
+      .fadeOutAndRemoveAfter(5, duration: 3.0) {
+        if !isEndGame {
+          // show the button again if it isn't the end game
+          self.setInSpaceState(.InSpace)
+        }
+    }
   }
 
   // MARK: Actually Introduce Sprites
@@ -477,6 +486,41 @@ class TamagatchiScene: SKScene {
   func startConsuming() {
     // add gravity to the black hole
     blackHole.startGravity()
+  }
+
+  // MARK: In Space State
+
+  enum InSpaceState {
+    case InSpace
+    case Encounter
+  }
+
+  var inSpaceState : InSpaceState = .InSpace
+
+  func setInSpaceState(state: InSpaceState) {
+
+    switch state {
+    case .InSpace:
+
+      let bottomRightCorner = CGPoint(x: self.frame.size.width - 5, y: Constant.GenericText.Font.Size + 2)
+      // show fast forward button
+      let button = SKButton(text: "next encounter >") { button in
+        button.fadeOutAndRemoveAfter(0.2, duration: 0.5)
+        self.introduceRandomCivilization()
+        self.setInSpaceState(.Encounter)
+      }
+      button.horizontalAlignmentMode = .Right
+      button
+        .setPos(to: bottomRightCorner)
+        .addTo(container)
+        .fadeInAfter(1, duration: 1.0)
+    case .Encounter:
+      fallthrough
+    default:
+      break
+    }
+
+    inSpaceState = state
   }
 
   func keyboardWillShow(notification: NSNotification) {

@@ -15,9 +15,9 @@ struct Debug {
       defaults.removeObjectForKey(key)
     }
     defaults.synchronize()
-
-    try! DefaultRealm.write {
-      DefaultRealm.deleteAll()
+    let url = DefaultRealm.configuration.fileURL!
+    if NSFileManager.defaultManager().fileExistsAtPath(url.path!) {
+      try! NSFileManager.defaultManager().removeItemAtURL(url)
     }
   }
 }

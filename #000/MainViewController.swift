@@ -25,8 +25,6 @@ class MainViewController: UIViewController {
 
     view.backgroundColor = Constant.Color.SpaceBackground
 
-    CivilizationGenerator.generateDefaultPlanets()
-
     // when the app is started, load the correct view
     self.skView = DefaultSKView()
     self.skView.frame = view.frame

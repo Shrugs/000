@@ -12,3 +12,7 @@ var DocumentsDirectory : NSString = {
   let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
   return paths.first!
 }()
+
+var BundleDirectory : NSBundle = {
+  return NSBundle.mainBundle()
+}()

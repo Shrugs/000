@@ -7,10 +7,19 @@
 //
 
 import RealmSwift
+import Foundation
 
 let DefaultRealm : Realm = {
 
+  let realmPath = DocumentsDirectory.stringByAppendingPathComponent("default.realm")
+
+  if !NSFileManager.defaultManager().fileExistsAtPath(realmPath) {
+    let bundleRealm = BundleDirectory.pathForResource("default", ofType: "realm")!
+    try! NSFileManager.defaultManager().copyItemAtPath(bundleRealm, toPath: realmPath)
+  }
+
   var config = Realm.Configuration()
+  config.fileURL = NSURL(fileURLWithPath: realmPath)
   config.schemaVersion = 3
   config.migrationBlock = { migration, oldSchemaVersion in
   }
