@@ -53,6 +53,7 @@
 		C93B82881CD4709100D76803 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C93B82871CD4709100D76803 /* CoreImage.framework */; };
 		C97121651CD5AAD7009100DD /* ShatterPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97121641CD5AAD7009100DD /* ShatterPiece.swift */; };
 		C97121671CD5B60F009100DD /* Test.sks in Resources */ = {isa = PBXBuildFile; fileRef = C97121661CD5B60F009100DD /* Test.sks */; };
+		C97121691CD5CE1F009100DD /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97121681CD5CE1F009100DD /* SKButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,7 @@
 		C93B82871CD4709100D76803 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		C97121641CD5AAD7009100DD /* ShatterPiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShatterPiece.swift; sourceTree = "<group>"; };
 		C97121661CD5B60F009100DD /* Test.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Test.sks; sourceTree = "<group>"; };
+		C97121681CD5CE1F009100DD /* SKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 		C93B82471CD32FF300D76803 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				C97121681CD5CE1F009100DD /* SKButton.swift */,
 				C93B82481CD32FFE00D76803 /* BlackHole.swift */,
 				C93B827F1CD4304E00D76803 /* PlanetSprite.swift */,
 				C97121641CD5AAD7009100DD /* ShatterPiece.swift */,
@@ -400,6 +403,7 @@
 				C93B823A1CD32F0600D76803 /* PixelData.swift in Sources */,
 				C93B827C1CD424C700D76803 /* PlanetScene.swift in Sources */,
 				C93B82391CD32F0600D76803 /* PerlinGenerator.swift in Sources */,
+				C97121691CD5CE1F009100DD /* SKButton.swift in Sources */,
 				C97121651CD5AAD7009100DD /* ShatterPiece.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,8 +18,8 @@ class CivilizationGenerator {
         name: "Earth",
         species: "Humans",
         population: "7.125 Billion",
-        mostRecentInvention: "invented the hoverboard. You saved them from themselves.",
-        almostInvented: "invented sustainable fusion reactors. They were only 10 years away, nice!",
+        mostRecentInvention: "invented the hoverboard.",
+        almostInvented: "invented sustainable\nfusion reactors.",
         size: 25
     )
 
@@ -28,8 +28,8 @@ class CivilizationGenerator {
 //        name: "Balderan",
 //        species: "Humans",
 //        population: "8.2 Billion",
-//        mostRecentInvention: "discovered the concept of Socialism and free education. Good for them!",
-//        almostInvented: "invented anti Death Star weapons systems.",
+//        mostRecentInvention: "discovered the concept\nof Socialism and\nfree education.",
+//        almostInvented: "invented anti Death Star\nweapons systems.",
 //        size: 45
 //    )
 //
@@ -37,9 +37,9 @@ class CivilizationGenerator {
 //      .generate(
 //        name: "Jarakis",
 //        species: "Freemen",
-//        population: "200,000",
-//        mostRecentInvention: "discovered some sort of cayenne pepper equivalent. Sounds delicous.",
-//        almostInvented: "perfected terraforming techology. Doesn't sound that terra-able.",
+//        population: "215,729",
+//        mostRecentInvention: "discovered some sort\nof cayenne pepper equivalent.\nSounds delicous.",
+//        almostInvented: "perfected terraforming techology.\nDoesn't sound that terra-able.",
 //        size: 30
 //    )
 //
@@ -48,8 +48,8 @@ class CivilizationGenerator {
 //        name: "Anoltron",
 //        species: "Anoltronians",
 //        population: "43.3 Billion",
-//        mostRecentInvention: "created some badass dinosaur robots. Hell yeah.",
-//        almostInvented: "guaranteed peace and happiness between worlds.",
+//        mostRecentInvention: "created some dinosaur robots\nto ride into battle.",
+//        almostInvented: "guaranteed peace and\nhappiness between worlds.",
 //        size: 50
 //    )
 //
@@ -58,8 +58,8 @@ class CivilizationGenerator {
 //        name: "Unknown",
 //        species: "Humans (?)",
 //        population: "2 (?)",
-//        mostRecentInvention: "invented a MacGyver'd compass to replace the one on Taylor's suit. Sounds pretty useful.",
-//        almostInvented: "discovered a timeline where nobody's possessed by creepy green alien things.",
+//        mostRecentInvention: "MacGyver'd a compass to\nreplace the one on\nTaylor's suit.",
+//        almostInvented: "discovered a timeline where\nnobody's possessed by creepy\ngreen alien things.",
 //        size: 20
 //    )
 //
@@ -68,8 +68,8 @@ class CivilizationGenerator {
 //        name: "Xenon",
 //        species: "Xenonites",
 //        population: "12.8 Billion",
-//        mostRecentInvention: "invented baby sized spaceships. Doesn't sound particularly useful, but what do we know?",
-//        almostInvented: "figured out how to stop suns from going supernova. ¯\\_(ツ)_/¯",
+//        mostRecentInvention: "invented baby-sized spaceships.\nDoesn't sound particularly useful,\nbut what do we know?",
+//        almostInvented: "figured out how to stop\nsuns from going supernova.\n¯\\_(ツ)_/¯",
 //        size: 30
 //    )
 //
@@ -78,7 +78,7 @@ class CivilizationGenerator {
 //        name: "Incrad",
 //        species: "Humans",
 //        population: "10,000",
-//        mostRecentInvention: "discovered the concept of holding two weapons at the same time.",
+//        mostRecentInvention: "discovered the concept of\nholding two weapons at the same time.",
 //        almostInvented: "figured out how to log out.",
 //        size: 50
 //    )
@@ -87,19 +87,19 @@ class CivilizationGenerator {
 //      .generate(
 //        name: "Zallifreid",
 //        species: "Zallifreidans",
-//        population: "325 to 20 Billion",
+//        population: "20.2 Billion",
 //        mostRecentInvention: "invented time travel.",
-//        almostInvented: "invented cataclysm preventative measures.",
+//        almostInvented: "invented cataclysm\npreventative measures.",
 //        size: 27
 //    )
 //
 //    let disboard = CivilizationGenerator(civType: 0.1, colorSchemeIndex: 6, zoom: 3, persistence: 0.5)
 //      .generate(
 //        name: "Thizboard",
-//        species: "The Exceed",
+//        species: "Exceed",
 //        population: "750 Million",
-//        mostRecentInvention: "have been having fun and playing together.",
-//        almostInvented: "united all of the races.",
+//        mostRecentInvention: "have been having fun\nand playing together.",
+//        almostInvented: "united all of\nthe races.",
 //        size: 27
 //    )
 //
@@ -108,8 +108,8 @@ class CivilizationGenerator {
 //        name: "KU 315",
 //        species: "Humans (?)",
 //        population: "18",
-//        mostRecentInvention: "have been trying to get engineers to fix their problems.",
-//        almostInvented: "figured out how to run slightly to the left.",
+//        mostRecentInvention: "have been trying to\nget engineers to fix their problems.",
+//        almostInvented: "figured out how to\nrun slightly to the left.",
 //        size: 27
 //    )
 //
@@ -117,8 +117,8 @@ class CivilizationGenerator {
 //      .generate(
 //        name: "Mavdora",
 //        species: "Mavi",
-//        population: "300,000",
-//        mostRecentInvention: "have been dealing with an invasive species impersonating their own.",
+//        population: "300,415",
+//        mostRecentInvention: "have been dealing with an\ninvasive species impersonating\ntheir own.",
 //        almostInvented: "obtained the unobtainable.",
 //        size: 20
 //    )

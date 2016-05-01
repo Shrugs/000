@@ -26,7 +26,33 @@ func generalTextNode(text: String) -> SKLabelNode {
   node.fontColor = Constant.GenericText.Font.Color
   node.verticalAlignmentMode = .Center
   node.horizontalAlignmentMode = .Center
-  return node
+  return multipleLineText(node)
+}
+
+func multipleLineText(labelInPut: SKLabelNode) -> SKLabelNode {
+  let subStrings:[String] = labelInPut.text!.componentsSeparatedByString("\n")
+  var labelOutPut = SKLabelNode()
+  var subStringNumber:Int = 0
+  for subString in subStrings {
+    let labelTemp = SKLabelNode(fontNamed: labelInPut.fontName)
+    labelTemp.text = subString
+    labelTemp.fontColor = labelInPut.fontColor
+    labelTemp.fontSize = labelInPut.fontSize
+    labelTemp.position = labelInPut.position
+    labelTemp.horizontalAlignmentMode = labelInPut.horizontalAlignmentMode
+    labelTemp.verticalAlignmentMode = labelInPut.verticalAlignmentMode
+    let y:CGFloat = CGFloat(subStringNumber) * labelInPut.fontSize
+
+    if subStringNumber == 0 {
+      labelOutPut = labelTemp
+      subStringNumber += 1
+    } else {
+      labelTemp.position = CGPoint(x: 0, y: -y)
+      labelOutPut.addChild(labelTemp)
+      subStringNumber += 1
+    }
+  }
+  return labelOutPut
 }
 
 extension SKLabelNode {
@@ -40,6 +66,11 @@ extension SKNode {
 
   func setPos(to position: CGPoint) -> SKNode {
     self.position = position
+    return self
+  }
+
+  func addTo(node: SKNode) -> SKNode {
+    node.addChild(self)
     return self
   }
 
@@ -93,6 +124,17 @@ extension SKNode {
     self.runAction(SKAction.sequence([
       SKAction.waitForDuration(after),
       SKAction.fadeOutWithDuration(duration)
+      ]), withKey: FADE_OUT, completion: completion)
+    return self
+  }
+
+  func fadeOutAndRemoveAfter(after: NSTimeInterval = 1, duration: NSTimeInterval = 1, completion: (() -> Void)? = nil) -> SKNode {
+    self.removeActionForKey(FADE_OUT)
+
+    self.runAction(SKAction.sequence([
+      SKAction.waitForDuration(after),
+      SKAction.fadeOutWithDuration(duration),
+      SKAction.removeFromParent()
       ]), withKey: FADE_OUT, completion: completion)
     return self
   }

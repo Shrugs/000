@@ -133,7 +133,91 @@ class TamagatchiScene: SKScene {
   }
 
   func showCivilizationStats(civ: Civilization) {
-    // show the stats on the screen
+
+    let config : [[String: String]] = [
+      [
+        "text": "\(GeneralState.blackHoleName) destroyed",
+      ],
+      [
+        "text": civ.name,
+        "font": Constant.GenericText.BoldFont.Name
+      ],
+      [
+        "text": "\(civ.population) \(civ.dominantSpecies)",
+      ],
+      [
+        "text": "They Recently",
+        "font": Constant.GenericText.BoldFont.Name
+      ],
+      [
+        "text": "... \(civ.mostRecentInvention)",
+      ],
+      [
+        "text": "They Almost",
+        "font": Constant.GenericText.BoldFont.Name
+      ],
+      [
+        "text": "... \(civ.almostInvented)",
+      ]
+    ]
+
+    let bottomPosition = CGPoint(
+      x: self.frame.size.width / 2.0,
+      y: (blackHole.position.y - blackHole.frame.size.height / 2.0) / 2.0 - 20
+    )
+
+    presentLabels(config) { labels in
+
+      let doneButton = SKButton(text: "nice") { button in
+        button.fadeOutAndRemoveAfter(1.0, duration: 0.2)
+        self.fadeOutLabels(labels) {}
+      }
+
+      doneButton
+        .setPos(to: bottomPosition)
+        .addTo(self.container)
+        .fadeIn()
+
+    }
+    
+  }
+
+  func presentLabels(config : [[String: String]], done: (([SKNode]) -> Void)?) -> [SKNode] {
+    var nodes = [SKNode]()
+    var currentTime : Double = 0
+    for (i, c) in config.enumerate() {
+
+      let isTitle = c["font"] != nil
+
+      currentTime = currentTime + (isTitle ? 4 : 2)
+
+      let node = generalTextNode(c["text"]!)
+        .setFont(to: c["font"] ?? Constant.GenericText.Font.Name)
+        .setPos(to: i == 0 ? textNodePosition : positionForNodeAfter(nodes[i-1], isTitle ? 30 : 0))
+        .addTo(container)
+        .fadeInAfter(currentTime, duration: 1.0)
+      nodes.append(node)
+    }
+
+    NSTimer.schedule(delay: currentTime) { timer in
+      done?(nodes)
+    }
+
+    return nodes
+  }
+
+  func fadeOutLabels(nodes: [SKNode], done: (() -> Void)?) {
+    for (i, n) in nodes.enumerate() {
+      n.fadeOutAfter(Double(i), duration: 0.5)
+    }
+
+    NSTimer.schedule(delay: Double(nodes.count)) { timer in
+      done?()
+    }
+  }
+
+  func positionForNodeAfter(node: SKNode, _ extraSpace: CGFloat = 0) -> CGPoint {
+    return CGPoint(x: frame.size.width/2.0, y: node.position.y - node.frame.size.height - 10 - extraSpace)
   }
 
   // MARK: Civilization Intros
@@ -162,9 +246,31 @@ class TamagatchiScene: SKScene {
       let i = Int(arc4random_uniform(UInt32(totalCivs)))
       introduceCivilization(allCivs[i])
     } else {
-      print("We ran out of planets!!!!")
-//      let civ = CivilizationGenerator(civType: nil, colorSchemeIndex: nil, zoom: nil, persistence: nil).generate()
-//      introduceCivilization(civ)
+      displayEndGame()
+    }
+  }
+
+  func displayEndGame() {
+    let information = [
+      [
+        "text": "Congrats",
+        "font": Constant.GenericText.BoldFont.Name
+      ],
+      [
+        "text": "\(GeneralState.blackHoleName) has consumed all of the\nplanets in (this) universe."
+      ]
+    ]
+
+    presentLabels(information) { labels in
+      NSTimer.schedule(delay: 3.0) { timer in
+        self.fadeOutLabels(labels) {
+          generalTextNode("\(GeneralState.blackHoleName) continues drifting\nthrough space.")
+            .setPos(to: self.textNodePosition)
+            .addTo(self.container)
+            .fadeInAfter(1.0, duration: 1.0)
+            .fadeOutAndRemoveAfter(5, duration: 3.0)
+        }
+      }
     }
   }
 
@@ -241,6 +347,11 @@ class TamagatchiScene: SKScene {
         let velocity = state == .Freefalling ? -20 : -30
 
         planet.physicsBody?.velocity = CGVector(dx: 0, dy: velocity)
+      }
+
+      if state == .Consuming {
+        // slow down while consuming
+        planet.physicsBody?.velocity = CGVector(dx: 0, dy: -10)
       }
 
       // if the planet passes below the 80% threshold, introduce the civilization
