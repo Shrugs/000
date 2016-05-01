@@ -26,39 +26,38 @@ func generalTextNode(text: String) -> SKLabelNode {
   node.fontColor = Constant.GenericText.Font.Color
   node.verticalAlignmentMode = .Center
   node.horizontalAlignmentMode = .Center
-  return multipleLineText(node)
+  return node
 }
 
-func multipleLineText(labelInPut: SKLabelNode) -> SKLabelNode {
+func multipleLineText(labelInPut: SKLabelNode) -> SKNode {
   let subStrings:[String] = labelInPut.text!.componentsSeparatedByString("\n")
-  var labelOutPut = SKLabelNode()
-  var subStringNumber:Int = 0
-  for subString in subStrings {
-    let labelTemp = SKLabelNode(fontNamed: labelInPut.fontName)
-    labelTemp.text = subString
-    labelTemp.fontColor = labelInPut.fontColor
-    labelTemp.fontSize = labelInPut.fontSize
-    labelTemp.position = labelInPut.position
-    labelTemp.horizontalAlignmentMode = labelInPut.horizontalAlignmentMode
-    labelTemp.verticalAlignmentMode = labelInPut.verticalAlignmentMode
-    let y:CGFloat = CGFloat(subStringNumber) * labelInPut.fontSize
+  let labelOutPut = SKNode()
 
-    if subStringNumber == 0 {
-      labelOutPut = labelTemp
-      subStringNumber += 1
-    } else {
-      labelTemp.position = CGPoint(x: 0, y: -y)
-      labelOutPut.addChild(labelTemp)
-      subStringNumber += 1
-    }
+  for (i, subString) in subStrings.enumerate() {
+    let label = SKLabelNode(fontNamed: labelInPut.fontName)
+    label.text = subString
+    label.fontColor = labelInPut.fontColor
+    label.fontSize = labelInPut.fontSize
+    label.position = labelInPut.position
+    label.horizontalAlignmentMode = labelInPut.horizontalAlignmentMode
+    label.verticalAlignmentMode = labelInPut.verticalAlignmentMode
+
+    let y = CGFloat(i) * labelInPut.fontSize // 0, 22, 44, 66
+    label.position = CGPoint(x: 0, y: -y)
+    labelOutPut.addChild(label)
   }
+
   return labelOutPut
 }
 
 extension SKLabelNode {
-  func setFont(to fontName: String) -> SKNode {
+  func setFont(to fontName: String) -> SKLabelNode {
     self.fontName = fontName
     return self
+  }
+
+  func toMultilineNode() -> SKNode {
+    return multipleLineText(self)
   }
 }
 

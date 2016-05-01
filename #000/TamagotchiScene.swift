@@ -200,6 +200,7 @@ class TamagatchiScene: SKScene {
 
       let node = generalTextNode(c["text"]!)
         .setFont(to: c["font"] ?? Constant.GenericText.Font.Name)
+        .toMultilineNode()
         .setPos(to: i == 0 ? textNodePosition : positionForNodeAfter(nodes[i-1], isTitle ? 30 : 0))
         .addTo(container)
         .fadeInAfter(currentTime, duration: 1.0)
@@ -224,14 +225,15 @@ class TamagatchiScene: SKScene {
   }
 
   func positionForNodeAfter(node: SKNode, _ extraSpace: CGFloat = 0) -> CGPoint {
-    return CGPoint(x: frame.size.width/2.0, y: node.position.y - node.frame.size.height - 10 - extraSpace)
+    let size = node.calculateAccumulatedFrame()
+    return CGPoint(x: frame.size.width/2.0, y: node.position.y - size.height - 10 - extraSpace)
   }
 
   // MARK: Civilization Intros
 
   func introduceEarth() {
     // Earth fuckin D I E S
-    introduceCivilizationByName("Earth")
+    introduceCivilizationByName("Balderan")
   }
 
   func introduceCivilizationByName( name: String) {
@@ -279,6 +281,7 @@ class TamagatchiScene: SKScene {
 
   func continueDriftingThroughSpace() {
     generalTextNode("\(GeneralState.blackHoleName) continues drifting\nthrough space.")
+      .toMultilineNode()
       .setPos(to: self.textNodePosition)
       .addTo(self.container)
       .fadeInAfter(1.0, duration: 1.0)

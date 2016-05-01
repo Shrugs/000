@@ -13,25 +13,25 @@ class CivilizationGenerator {
   static func generateDefaultPlanets() {
 
     // generates all of the planets and saves them to a Realm database
-    let earth = CivilizationGenerator(civType: 0.7125, colorSchemeIndex: 0, zoom: 2.0, persistence: 1.0)
-      .generate(
-        name: "Earth",
-        species: "Humans",
-        population: "7.125 Billion",
-        mostRecentInvention: "invented the hoverboard.",
-        almostInvented: "invented sustainable\nfusion reactors.",
-        size: 25
-    )
-
-//    let alderaan = CivilizationGenerator(civType: 1.25, colorSchemeIndex: 0, zoom: 3, persistence: 0.2)
+//    let earth = CivilizationGenerator(civType: 0.7125, colorSchemeIndex: 0, zoom: 2.0, persistence: 1.0)
 //      .generate(
-//        name: "Balderan",
+//        name: "Earth",
 //        species: "Humans",
-//        population: "8.2 Billion",
-//        mostRecentInvention: "discovered the concept\nof Socialism and\nfree education.",
-//        almostInvented: "invented anti Death Star\nweapons systems.",
-//        size: 45
+//        population: "7.125 Billion",
+//        mostRecentInvention: "invented the hoverboard.",
+//        almostInvented: "invented sustainable\nfusion reactors.",
+//        size: 25
 //    )
+
+    let alderaan = CivilizationGenerator(civType: 1.25, colorSchemeIndex: 0, zoom: 3, persistence: 0.2)
+      .generate(
+        name: "Balderan",
+        species: "Humans",
+        population: "8.2 Billion",
+        mostRecentInvention: "discovered the concept\nof Socialism and\nfree education.",
+        almostInvented: "invented anti Death Star\nweapons systems.",
+        size: 45
+    )
 //
 //    let arrakis = CivilizationGenerator(civType: 0.3, colorSchemeIndex: 3, zoom: 7, persistence: 0.01)
 //      .generate(
@@ -131,8 +131,8 @@ class CivilizationGenerator {
     try! DefaultRealm.write {
       DefaultRealm.deleteAll()
       [
-        earth,
-//        alderaan,
+//        earth,
+        alderaan,
 //        arrakis,
 //        cybertron,
 //        lifeline,
